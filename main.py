@@ -1,3 +1,6 @@
+import os
+
+from etl.github_api import GithubAPI
 # This is a sample Python script.
 
 # Press Shift+F10 to execute it or replace it with your code.
@@ -7,6 +10,10 @@
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+
+    client = GithubAPI()
+
+    print(client.ping_valid())
 
 
 # Press the green button in the gutter to run the script.
