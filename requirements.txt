@@ -1,0 +1,9 @@
+requests
+pandas
+python-dotenv
+tqdm
+apache-airflow
+matplotlib
+seaborn
+jupyterlab
+
