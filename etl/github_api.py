@@ -1,6 +1,6 @@
 import requests
 import os
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, List
 import  logging
 
 class GithubAPI:

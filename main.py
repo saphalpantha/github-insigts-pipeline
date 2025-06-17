@@ -1,21 +1,12 @@
 import os
 
 from dotenv import load_dotenv
-from etl.github_api import GithubAPI
+from etl.etl_pipeline import GithubETL, GithubAPI
+load_dotenv()
 
-load_dotenv();
+if __name__ == "__main__":
 
-def print_hi(name):
+    etl = GithubETL(token=os.getenv('GITHUB_TOKEN'))
 
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-    client = GithubAPI(os.getenv('GITHUB_TOKEN'))
+    etl.run_for_user("saphalpantha" , "data/processed/repos.json")
 
-    print(client.ping_valid())
-    # print(cli)
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
