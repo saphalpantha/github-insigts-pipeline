@@ -50,13 +50,13 @@ class GithubAPI:
             print(f"Request error occurred: {req_err}")
             raise
 
-    def get_repo_meta(self, owner:str, entity:str="users"):
+    def get_repo_meta(self, owner:str, repo:str):
 
-        url = f"{self.base_url}/${entity}/${owner}/repos"
+        url = f"{self.base_url}/repos/{owner}/{repo}"
         try:
-            response = requests.get(url, self.headers)
-            # print(response)
-
+            response = requests.get(url, headers=self.headers)
+            response.raise_for_status()
+            return response.json()
         except requests.exceptions.HTTPError as http_err:
             logging.error(
                 f"[HTTPError] Failed to fetch repos")

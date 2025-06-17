@@ -8,5 +8,7 @@ if __name__ == "__main__":
 
     etl = GithubETL(token=os.getenv('GITHUB_TOKEN'))
 
-    etl.run_for_user("saphalpantha" , "data/processed/repos.json")
+    etl.run_for_user("saphalpantha")
+    etl.run_for_repo(owner="saphalpantha", repo="saphalpantha")
+    print("END")
 

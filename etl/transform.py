@@ -31,6 +31,7 @@ class Transformer:
         ]
 
     def transform_repo_details(self, repo: Dict[str, Any]) -> Dict[str, Any]:
+
         return {
             "id": repo.get("id"),
             "name": repo.get("name"),
@@ -45,3 +46,18 @@ class Transformer:
             "license": repo.get("license", {}).get("name") if repo.get("license") else None,
             "visibility": repo.get("visibility"),
         }
+
+    def transform_contributors(self, raw_contributors):
+        """
+        Transforms raw contributor data into a structured format.
+        """
+        return [
+            {
+                "login": contributor.get("login"),
+                "id": contributor.get("id"),
+                "contributions": contributor.get("contributions"),
+                "url": contributor.get("html_url"),
+                "avatar_url": contributor.get("avatar_url")
+            }
+            for contributor in raw_contributors
+        ]
