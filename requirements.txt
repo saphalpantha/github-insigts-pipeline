@@ -1,9 +1,11 @@
-requests
+requests~=2.32.4
 pandas
-python-dotenv
+python-dotenv~=1.1.0
 tqdm
 apache-airflow
 matplotlib
 seaborn
 jupyterlab
 
+
+asyncpg~=0.30.0
