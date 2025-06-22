@@ -6,6 +6,5 @@ apache-airflow
 matplotlib
 seaborn
 jupyterlab
-
-
+streamlit
 asyncpg~=0.30.0

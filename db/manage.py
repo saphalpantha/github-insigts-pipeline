@@ -55,3 +55,13 @@ class DBManager:
         if self.pool:
             await self.pool.close()
             print("Connection pool closed")
+
+
+    async  def get_repos(self):
+        query = """
+        SELECT id, name, full_name, stargazers_count, forks_count, created_at FROM repos
+        """
+        async with self.pool.acquire() as conn:
+            result = await conn.execute(query)
+            return result
+
